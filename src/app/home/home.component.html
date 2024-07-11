@@ -1,0 +1,34 @@
+<ul>
+  <li *ngFor="let food of foods">
+    <a>
+      <img src="{{ food.imageUrl }}" alt="" />
+      <div class="content">
+        <div class="name">
+          {{ food.name }}
+        </div>
+        <span class="favorite {{ food.favorite ? '' : 'not' }}"> ❤ </span>
+        <div class="stars">
+          <igc-rating value="ratingVal" min="1" max="5" (igcChange)="ratingChanged($event);"></igc-rating>
+        </div>
+        <div class="product-item-footer">
+          <div class="origins">
+            <span>
+              {{ food.origins }}
+            </span>
+          </div>
+          <div class="cook-time">
+            <span>
+              <lucide-icon name="clock"></lucide-icon>
+              {{ food.cookTime }}
+            </span>
+          </div>
+        </div>
+        <div class="price">
+          <span>
+            {{ food.price|currency }}
+          </span>
+        </div>
+      </div>
+    </a>
+  </li>
+</ul>
